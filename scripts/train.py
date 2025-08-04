@@ -25,7 +25,7 @@ with mlflow.start_run():
 
     # Train model
     results = model.train(
-        data="../datasets/data/data.yaml",  # Ensure this path is correct
+        data="/datasets/data/data.yaml",  # Ensure this path is correct
         epochs=10,
         imgsz=416,
         batch=4

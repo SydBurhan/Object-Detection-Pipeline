@@ -1,0 +1,26 @@
+# Core deep learning & YOLOv8 support
+ultralytics==8.1.33
+torch>=1.12.1
+opencv-python
+onnx
+onnxruntime
+
+# Logging and experiment tracking
+mlflow
+dagshub
+
+# Data handling and visualization
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+
+# Optional: for image augmentation, if used
+albumentations
+
+# TensorFlow (only needed if your pipeline uses tf in any part)
+tensorflow
+
+# Environment and progress bar (optional)
+tqdm

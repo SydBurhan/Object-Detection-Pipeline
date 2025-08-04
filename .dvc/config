@@ -1,0 +1,7 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/SydBurhan/Object-Detection-Pipeline.dvc
+    auth = basic
+    user = SydBurhan
+    password = b800b01f1e82ebf0ee1c89d35c09b422f4113ede

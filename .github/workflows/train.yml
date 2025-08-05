@@ -4,9 +4,9 @@ on:
   workflow_dispatch:  # allows manual trigger
   push:
     paths:
-      - 'train.py'
-      - 'datasets/**'
+      - 'scripts/train.py'
       - 'images/**'
+      - 'labels/**'
       - 'models/**'
       - '.github/workflows/train.yml'
 
@@ -21,29 +21,13 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.10.11
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install ultralytics dvc[gs] mlflow
-
-    - name: Configure DVC
-      run: |
-        dvc remote modify origin --local auth basic
-        dvc remote modify origin --local user ${{ secrets.DAGSHUB_USERNAME }}
-        dvc remote modify origin --local password ${{ secrets.DAGSHUB_TOKEN }}
-        dvc pull
+        pip install ultralytics mlflow
 
     - name: Train YOLOv8 model
       run: |
-        python train.py  # customize if you use CLI or ultralytics.train()
-
-    - name: Push results to DVC
-      run: |
-        dvc add runs/
-        git add runs/ runs.dvc
-        git commit -m "Add trained model"
-        dvc push
-        git push
+        python scripts/train.py

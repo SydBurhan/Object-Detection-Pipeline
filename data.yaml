@@ -1,4 +1,4 @@
-path: data  # base folder where images/ and labels/ are
+path: datasets/data  # base folder where images/ and labels/ are
 
 train: images/train
 val: images/val

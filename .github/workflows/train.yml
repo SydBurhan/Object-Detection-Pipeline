@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_ACTIONS: true  # ensures MLflow uses relative URI
         run: |
-          python scripts/train.py
+          python scripts/train_yolo.py
